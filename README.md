@@ -17,13 +17,9 @@ torch.backends controls the behavior of various backends that PyTorch supports. 
   By using that class, we can check cuDNN version and, control whether cuDNN is enabled, and so on.  
   
 ### torch.cuda   
-This package adds support for CUDA tensor types, that implement the same function as CPU tensors, but they utilize GPUs for computation.  
-
-
+This package adds support for CUDA tensor types, that implement the same function as CPU tensors, but they utilize GPUs for computation.   
 
 ## Create model on gpu
-
-
 
 ## save and load model on gpu
 
