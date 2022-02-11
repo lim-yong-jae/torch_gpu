@@ -75,8 +75,30 @@ If DNN is on gpu, DNN's input data should on gpu too. For calculating loss, True
 loss_fn = nn.CrossEntropyLoss()
 
 # optimizer should be on gpu too. 
-optimizer = torch.optim.SGD(model.parameters(), lr=1e-3)
+def optimizer_to(optim, device):
+    for param in optim.state.values():
+        # Not sure there are any global tensors in the state dict
+        if isinstance(param, torch.Tensor):
+            param.data = param.data.to(device)
+            if param._grad is not None:
+                param._grad.data = param._grad.data.to(device)
+        elif isinstance(param, dict):
+            for subparam in param.values():
+                if isinstance(subparam, torch.Tensor):
+                    subparam.data = subparam.data.to(device)
+                    if subparam._grad is not None:
+                        subparam._grad.data = subparam._grad.data.to(device)
+                        
+# Empty any cache, not sure this helps, we try waht we can 
+torch.cuda.empty_cache()
 
+# Load optimizer
+# Load to CPU first
+optimizer.load_state_dict(torch.load(model_save_path + '.optim',map_location='cpu'))
+# Send to GPU
+optimizer_to(optimizer,device)
+
+# train
 def train(dataloader, model, loss_fn, optimizer):
     size = len(dataloader.dataset)
     model.train()
