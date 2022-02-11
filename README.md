@@ -19,7 +19,18 @@ torch.backends controls the behavior of various backends that PyTorch supports. 
 This package adds support for CUDA tensor types, that implement the same function as CPU tensors, but they utilize GPUs for computation.  
 
 
+
+## Create model on gpu
+
+
+
+## save and load model on gpu
+
+## model train using gpu
+
+
 # Reference  
 * torch, cuda, cudnn install guide: https://velog.io/@xdfc1745/CUDA-CuDNN-%EC%84%A4%EC%B9%98
 * implementation guide: https://velog.io/@papago2355/Pytorch%EC%97%90%EC%84%9C-GPU%EB%A5%BC-%EC%93%B0%EA%B3%A0-%EC%8B%B6%EC%96%B4%EC%9A%94%EC%84%A4%EC%B9%98%EB%A5%BC-%EB%81%9D%EB%82%B8%EB%92%A4%EC%97%90-%EC%BD%94%EB%93%9C%EC%97%90%EC%84%9C-%EB%82%B4%EA%B0%80-%ED%95%B4%EC%95%BC%ED%95%A0%EA%B2%83
-
+* pytorch make model tutorial: https://pytorch.org/tutorials/beginner/basics/quickstart_tutorial.html
+* pytorch gpu tutorial: https://pytorch.org/tutorials/recipes/recipes/save_load_across_devices.html
