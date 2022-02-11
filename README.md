@@ -13,6 +13,9 @@ CUDA is not programming language like C. It is an API model for being used to us
 <img src="./img/CUDA.png" alt="MLE" width="80%" height="80%"/> 
 
 
+## How to use CUDA, cuDNN in torch  
+
+
 
 # Link  
 * torch download link: https://pytorch.org/  
