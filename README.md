@@ -10,11 +10,12 @@ I refer to a site: https://velog.io/@xdfc1745/CUDA-CuDNN-%EC%84%A4%EC%B9%98 for 
 ## How to use CUDA, cuDNN in torch  
 In pytorch docs, there are "torch.backends" and "torch.cuda" class.   
 ### torch.backends 
-torch.backends controls the behavior of various backends that PyTorch supports. In that class, there are "torch.backends.cuda", "torch.backends.cudnn". 
+torch.backends controls the behavior of various backends that PyTorch supports. In that class, there are "torch.backends.cuda", "torch.backends.cudnn" and so on. 
 * torch.backends.cuda  
-
+  By using that class, we can check torch is built on cuda, or control whether TensorFloat-32 tensor cores may be used in matrix multiplications on Ampere or newer GPUs, and so on. 
 * torch.backends.cudnn  
-
+  By using that class, we can check cuDNN version and, control whether cuDNN is enabled, and so on.  
+  
 ### torch.cuda   
 This package adds support for CUDA tensor types, that implement the same function as CPU tensors, but they utilize GPUs for computation.  
 
