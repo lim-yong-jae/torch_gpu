@@ -14,10 +14,22 @@ CUDA is not programming language like C. It is an API model for being used to us
 
 
 ## How to use CUDA, cuDNN in torch  
+In pytorch docs, there are "torch.backends" and "torch.cuda" class.   
+### torch.backends 
+torch.backends controls the behavior of various backends that PyTorch supports. In that class, there are "torch.backends.cuda", "torch.backends.cudnn". 
+* torch.backends.cuda  
+
+
+* torch.backends.cudnn  
+
+### torch.cuda   
+This package adds support for CUDA tensor types, that implement the same function as CPU tensors, but they utilize GPUs for computation.  
+
 
 
 
 # Link  
 * torch download link: https://pytorch.org/  
 * CUDA(ver 10.2) download link: https://developer.nvidia.com/cuda-10.2-download-archive?target_os=Windows&target_arch=x86_64&target_version=10&target_type=exelocal 
+* torch.backends: https://pytorch.org/docs/stable/backends.html?highlight=is_available#torch.backends.cudnn.is_available
 * 
