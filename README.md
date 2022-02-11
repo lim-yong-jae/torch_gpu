@@ -8,7 +8,8 @@ CUDA is not programming language like C. It is an API model for being used to us
 I refer to a site: https://velog.io/@xdfc1745/CUDA-CuDNN-%EC%84%A4%EC%B9%98 for setting up.  
 
 ## How to use CUDA, cuDNN in torch  
-In pytorch docs, there are "torch.backends" and "torch.cuda" class.   
+We don't need to use CUDA, cuDNN's api function for iumplementing DNN. Because pytorch support it on background. In pytorch docs, there are "torch.backends" and "torch.cuda" class.   
+
 ### torch.backends 
 torch.backends controls the behavior of various backends that PyTorch supports. In that class, there are "torch.backends.cuda", "torch.backends.cudnn" and so on. 
 * torch.backends.cuda  
