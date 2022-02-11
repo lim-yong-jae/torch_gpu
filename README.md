@@ -19,6 +19,23 @@ torch.backends controls the behavior of various backends that PyTorch supports. 
 ### torch.cuda   
 This package adds support for CUDA tensor types, that implement the same function as CPU tensors, but they utilize GPUs for computation.   
 
+```python  
+import torch
+
+print(torch.cuda.is_available()) # check torch is built on cuda.
+print(torch.cuda.current_device()) # check current connected gpu device.
+print(torch.cuda.device_count()) # check available gpu device.
+
+device = "cpu"
+
+if torch.cuda.is_available() == True:
+    device = torch.cuda.current_device()
+    print(torch.cuda.get_device_name(device)) # get device name.
+
+torch.cuda.device(device) # select device.
+```   
+
+
 ## Create model on gpu
 
 ## save and load model on gpu
