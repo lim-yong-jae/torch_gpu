@@ -19,13 +19,6 @@ torch.backends controls the behavior of various backends that PyTorch supports. 
 This package adds support for CUDA tensor types, that implement the same function as CPU tensors, but they utilize GPUs for computation.  
 
 
-
-
-# Link  
-* torch download link: https://pytorch.org/  
-* CUDA(ver 10.2) download link: https://developer.nvidia.com/cuda-10.2-download-archive?target_os=Windows&target_arch=x86_64&target_version=10&target_type=exelocal 
-* torch.backends: https://pytorch.org/docs/stable/backends.html?highlight=is_available#torch.backends.cudnn.is_available
-
 # Reference  
 https://velog.io/@xdfc1745/CUDA-CuDNN-%EC%84%A4%EC%B9%98
 
