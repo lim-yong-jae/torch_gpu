@@ -6,8 +6,15 @@ CUDA is not programming language like C. It is an API model for being used to us
 
 ## Set up guide
 1) For operating pytorch's DNN on gpu, we need to install CUDA. CUDA version is important, so we should download specific CUDA version which is designated in pytorch.  
+<img src="./img/torch.png" alt="MLE" width="80%" height="80%"/>  
+
+
+2) Download CUDA 
+<img src="./img/CUDA.png" alt="MLE" width="80%" height="80%"/> 
 
 
 
-
-3) 
+# Link  
+* torch download link: https://pytorch.org/  
+* CUDA(ver 10.2) download link: https://developer.nvidia.com/cuda-10.2-download-archive?target_os=Windows&target_arch=x86_64&target_version=10&target_type=exelocal 
+* 
