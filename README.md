@@ -73,6 +73,8 @@ If DNN is on gpu, DNN's input data should on gpu too. For calculating loss, True
 
 ```python  
 loss_fn = nn.CrossEntropyLoss()
+
+# optimizer should be on gpu too. 
 optimizer = torch.optim.SGD(model.parameters(), lr=1e-3)
 
 def train(dataloader, model, loss_fn, optimizer):
@@ -103,3 +105,4 @@ torch.cuda.empty_cache()
 * pytorch make model and train tutorial: https://pytorch.org/tutorials/beginner/basics/quickstart_tutorial.html
 * pytorch gpu tutorial: https://pytorch.org/tutorials/recipes/recipes/save_load_across_devices.html
 * Tip: https://yonghyuc.wordpress.com/2019/08/06/pytorch-cuda-gpu-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/
+* moving optimizer cpu to gpu: https://discuss.pytorch.org/t/moving-optimizer-from-cpu-to-gpu/96068  
