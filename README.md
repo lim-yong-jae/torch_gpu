@@ -33,6 +33,24 @@ if torch.cuda.is_available() == True:
 ```   
 
 ## Create model on gpu
+```python  
+import torch
+import model
+
+# designate device
+device = torch.device('cpu')
+if torch.cuda.is_available() == True:
+    device = torch.cuda.current_device()
+    torch.cuda.set_device(device)
+    device = torch.device('cuda', device)
+
+# Create model
+hidden = [100, 50, 25]
+net = model.Actor(10, -2, 2, hidden).to(device)
+
+# check model is on cuda
+print(next(net.parameters()).is_cuda)
+```  
 
 ## save and load model on gpu
 
