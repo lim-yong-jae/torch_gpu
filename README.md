@@ -23,18 +23,14 @@ This package adds support for CUDA tensor types, that implement the same functio
 import torch
 
 print(torch.cuda.is_available()) # check torch is built on cuda.
-print(torch.cuda.current_device()) # check current connected gpu device.
+print(torch.cuda.current_device()) # get device index
 print(torch.cuda.device_count()) # check available gpu device.
 
-device = "cpu"
-
 if torch.cuda.is_available() == True:
-    device = torch.cuda.current_device()
+    device = torch.cuda.current_device() # get device index
     print(torch.cuda.get_device_name(device)) # get device name.
-
-torch.cuda.device(device) # select device.
+    torch.cuda.set_device(device) # set current device.
 ```   
-
 
 ## Create model on gpu
 
