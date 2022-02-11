@@ -69,8 +69,32 @@ print(next(load_net.parameters()).is_cuda)
 ```  
 
 ## model train using gpu
-```python  
+If DNN is on gpu, DNN's input data should on gpu too. For calculating loss, True answer should be on gpu too, because loaded tensor on gpu should be calculated with tensor which is loaded on gpu.  
 
+```python  
+loss_fn = nn.CrossEntropyLoss()
+optimizer = torch.optim.SGD(model.parameters(), lr=1e-3)
+
+def train(dataloader, model, loss_fn, optimizer):
+    size = len(dataloader.dataset)
+    model.train()
+    
+    for batch, (X, y) in enumerate(dataloader):
+        X, y = X.to(device), y.to(device) # Tensor shoule be on gpu, becasue DNN is on gpu. 
+
+        # Compute prediction error
+        pred = model(X)
+        loss = loss_fn(pred, y)
+
+        # Backpropagation
+        optimizer.zero_grad()
+        loss.backward()
+        optimizer.step()
+
+# Releases all unoccupied cached memory currently held by
+# the caching allocator so that those can be used in other
+# GPU application and visible in nvidia-smi
+torch.cuda.empty_cache() 
 ```  
 
 # Reference  
@@ -78,3 +102,4 @@ print(next(load_net.parameters()).is_cuda)
 * implementation guide: https://velog.io/@papago2355/Pytorch%EC%97%90%EC%84%9C-GPU%EB%A5%BC-%EC%93%B0%EA%B3%A0-%EC%8B%B6%EC%96%B4%EC%9A%94%EC%84%A4%EC%B9%98%EB%A5%BC-%EB%81%9D%EB%82%B8%EB%92%A4%EC%97%90-%EC%BD%94%EB%93%9C%EC%97%90%EC%84%9C-%EB%82%B4%EA%B0%80-%ED%95%B4%EC%95%BC%ED%95%A0%EA%B2%83
 * pytorch make model and train tutorial: https://pytorch.org/tutorials/beginner/basics/quickstart_tutorial.html
 * pytorch gpu tutorial: https://pytorch.org/tutorials/recipes/recipes/save_load_across_devices.html
+* Tip: https://yonghyuc.wordpress.com/2019/08/06/pytorch-cuda-gpu-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/
