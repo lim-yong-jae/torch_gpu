@@ -1,13 +1,13 @@
 # Description
 In this repository, i summarzie and organize how to use gpu for training and implementing DNN by using CUDA, cuDNN.  
 
-## CUDA, cuDNN  
+## 1. CUDA, cuDNN  
 CUDA is not programming language like C. It is an API model for being used to use GPU resource. In other words it is **the interface** between CPU and GPU. By using api function in CUDA, we can use GPU. cuDNN support DNN implementation on gpu in CUDA. In pytorch, we can use gpu for training and implement DNN by using CUDA and cuDNN, but do not need to directly use api function in cuDNN. By using pytorch's api function which support to use CUDA and cuDNN, we can easily use gpu. 
 
-## Set up guide
+## 2. Set up guide
 I refer to a site: https://velog.io/@xdfc1745/CUDA-CuDNN-%EC%84%A4%EC%B9%98 for setting up.  
 
-## How to use CUDA, cuDNN in torch  
+## 3. How to use CUDA, cuDNN in torch  
 We don't need to use CUDA, cuDNN's api function for iumplementing DNN. Because pytorch support it on background. In pytorch docs, there are "torch.backends" and "torch.cuda" class.   
 
 ### torch.backends 
@@ -33,7 +33,7 @@ if torch.cuda.is_available() == True:
     torch.cuda.set_device(device) # set current device.
 ```   
 
-## Create model on gpu
+## 4. Create model on gpu
 ```python  
 import torch
 import model
@@ -53,7 +53,7 @@ net = model.Actor(10, -2, 2, hidden).to(device)
 print(next(net.parameters()).is_cuda)
 ```  
 
-## save and load model on gpu
+## 5. Save and load model on gpu
 ```python  
 # cuda device
 device = torch.device('cuda', torch.cuda.current_device())
@@ -69,7 +69,7 @@ load_net.to(device) # load on CPU
 print(next(load_net.parameters()).is_cuda)
 ```  
 
-## model train using gpu
+## 6. Train model using gpu
 If DNN is on gpu, DNN's input data should on gpu too. For calculating loss, True answer should be on gpu too, because loaded tensor on gpu should be calculated with tensor which is loaded on gpu.  
 
 ```python  
