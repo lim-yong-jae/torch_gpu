@@ -53,9 +53,25 @@ print(next(net.parameters()).is_cuda)
 ```  
 
 ## save and load model on gpu
+```python  
+# cuda device
+device = torch.device('cuda', torch.cuda.current_device())
+
+# save
+PATH = "model.pt"
+torch.save(net.state_dict(), PATH) # Save model on GPU, CPU
+
+# Load
+load_net = model.Actor(10, -2, 2, hidden)
+load_net.load_state_dict(torch.load(PATH))
+load_net.to(device) # load on CPU
+print(next(load_net.parameters()).is_cuda)
+```  
 
 ## model train using gpu
+```python  
 
+```  
 
 # Reference  
 * torch, cuda, cudnn install guide: https://velog.io/@xdfc1745/CUDA-CuDNN-%EC%84%A4%EC%B9%98
